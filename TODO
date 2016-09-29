@@ -1,0 +1,6 @@
+Autoclean empty dirs
+Handle picasa files (ini, originals folder)
+GUI per scelta directory destinazione
+Scelta ignora/sposta/elimina per file esistenti
+Elimina date duplicate 2006_08_04_09_07_08_2006_08_04_09_07_08.jpg con suffissi (_2, ... _n)
+Handle windows files
