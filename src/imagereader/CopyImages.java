@@ -6,6 +6,8 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
+import it.dcremo.photoarchiver.JpegDateReader;
+
 public class CopyImages {
 
 	static boolean compareDate = false;
@@ -61,7 +63,7 @@ public class CopyImages {
 	private boolean CopyImage(File file, int progr) throws IOException {
 		boolean retval = false;
 		try {
-			String datetime = ImageReaderMain.getDateTime(file);
+			String datetime = new JpegDateReader(file.getAbsolutePath()).getDateTime();
 			if (datetime == null) {
 				logger.fatal("Non riesco a leggere la data del file ["
 						+ file.getAbsolutePath() + "]");
@@ -76,7 +78,7 @@ public class CopyImages {
 			String mese = datetime.substring(5, 7);
 			if (anno.equals("0000") || mese.equals("00")) {
 				logger.fatal("La data del file [" + file.getAbsolutePath()
-						+ "] non è valida (" + datetime + ")");
+						+ "] non ï¿½ valida (" + datetime + ")");
 				return false;
 			}
 			if (progr > 0)
@@ -94,7 +96,7 @@ public class CopyImages {
 			retval = file.renameTo(destFile);
 			if (retval == false) {
 				boolean identical = false;
-				// non è stata copiata, guarda se esiste già e se è identica
+				// non ï¿½ stata copiata, guarda se esiste giï¿½ e se ï¿½ identica
 				identical = true;
 				if (compareDate) {
 					identical = destFile.lastModified() == file.lastModified();
@@ -108,12 +110,12 @@ public class CopyImages {
 					file.delete();
 				} else {
 					System.out.println("I files NON sono identici, errore.");
-					logger.fatal("Errore, incompatibilità dei file origine:"
+					logger.fatal("Errore, incompatibilitï¿½ dei file origine:"
 							+ file.getName());
 					logger.fatal("lastModified:"
 							+ new Date(file.lastModified()));
 					logger.fatal("length:" + file.length());
-					logger.fatal("Errore, incompatibilità dei file destinazione:"
+					logger.fatal("Errore, incompatibilitï¿½ dei file destinazione:"
 							+ destFile.getName());
 					logger.fatal("lastModified:"
 							+ new Date(destFile.lastModified()));
