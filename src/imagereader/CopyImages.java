@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import it.dcremo.photoarchiver.JpegDateReader;
+import it.dcremo.photoarchiver.EstrattoreDataJpeg;
 
 public class CopyImages {
 
@@ -63,7 +63,7 @@ public class CopyImages {
 	private boolean CopyImage(File file, int progr) throws IOException {
 		boolean retval = false;
 		try {
-			String datetime = new JpegDateReader(file.getAbsolutePath()).getDateTime();
+			String datetime = new EstrattoreDataJpeg(file.getAbsolutePath()).getDateTime();
 			if (datetime == null) {
 				logger.fatal("Non riesco a leggere la data del file ["
 						+ file.getAbsolutePath() + "]");

@@ -6,7 +6,7 @@ import java.util.*;
 
 import org.apache.log4j.*;
 
-import it.dcremo.photoarchiver.JpegDateReader;
+import it.dcremo.photoarchiver.EstrattoreDataJpeg;
 
 public class ShiftImageDate
 {
@@ -66,7 +66,7 @@ public class ShiftImageDate
   private static boolean ShiftImageDate(File fileorig, long fromDate, long toDate) throws IOException {
     boolean retval = false;
     Date imageDate = null;
-    String exif_datetimestr = new JpegDateReader(fileorig.getAbsolutePath()).getDateTime();
+    String exif_datetimestr = new EstrattoreDataJpeg(fileorig.getAbsolutePath()).getDateTime();
     if (exif_datetimestr == null) {
       logger.fatal("Non riesco a leggere la data del file [" + fileorig.getAbsolutePath() + "]");
       return false;
