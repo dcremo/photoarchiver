@@ -20,7 +20,7 @@ public class EstrattoreDataJpegTest {
 
 	@Test
 	public void testGetDateTime() throws IOException {
-		EstrattoreDataJpeg jpegReader = new EstrattoreDataJpeg("test/resources/DSC_0734.jpg");		
+		EstrattoreDataJpeg jpegReader = new EstrattoreDataJpeg("test/resources/DSC_0734.JPG");		
 		assertEquals("2013:08:01 00:45:01", jpegReader.getDateTime());
 	}
 

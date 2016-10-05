@@ -1,4 +1,5 @@
-package imagereader;
+package it.dcremo.photoarchiver;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -45,10 +46,28 @@ public class MediaArchiverLauncher {
 			
 			throw new Exception("Numero di parametri insufficienti.");
 		}
-
-		CopyImages cp = new CopyImages(sourceDir, imageDestinationDir,
+		
+		if (!esisteDir(sourceDir)) {
+			System.err.println("La cartella specificata contenente le immagini da archiviare ["+sourceDir+"] non esiste o non è accessibile.");
+			return;
+		}
+		if (!esisteDir(imageDestinationDir)) {
+			System.err.println("La cartella destinazione per le immagini ordinate ["+imageDestinationDir+"] non esiste o non è accessibile.");
+			return;
+		}
+		if (!esisteDir(otherDestinationDir)) {
+			System.err.println("La cartella destinazione per i video ordinati ["+otherDestinationDir+"] non esiste o non è accessibile.");
+			return;
+		}
+		
+		MediaArchiverWorker cp = new MediaArchiverWorker(sourceDir, imageDestinationDir,
 				otherDestinationDir);
 		cp.doArchive(null);
 		// ShiftImageDate.processDir(null);
+	}
+
+	private static boolean esisteDir(String sourceDir) {
+		File f = new File(sourceDir);
+		return f.exists()&&f.isDirectory();
 	}
 }

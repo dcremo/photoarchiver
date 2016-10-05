@@ -10,7 +10,7 @@
         <jar destfile="${dir.jarfile}/PhotoArchiver.jar">
             <manifest>
                 <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
-                <attribute name="Rsrc-Main-Class" value="imagereader.MediaArchiverLauncher"/>
+                <attribute name="Rsrc-Main-Class" value="it.dcremo.photoarchiver.MediaArchiverLauncher"/>
                 <attribute name="Class-Path" value="."/>
                 <attribute name="Rsrc-Class-Path" value="./ ImgRdrDoc178.zip log4j-1.2.8.jar ImgrRdr178.zip TiFFTeST.zip junit.jar org.hamcrest.core_1.3.0.v201303031735.jar"/>
             </manifest>

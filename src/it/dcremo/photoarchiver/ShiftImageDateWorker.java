@@ -1,4 +1,4 @@
-package imagereader;
+package it.dcremo.photoarchiver;
 
 import java.io.*;
 import java.text.*;
@@ -6,11 +6,14 @@ import java.util.*;
 
 import org.apache.log4j.*;
 
-import it.dcremo.photoarchiver.EstrattoreDataJpeg;
-
-public class ShiftImageDate
+/**
+ * Still work in progress, editing EXIF seems not ok
+ * @author davide
+ *
+ */
+public class ShiftImageDateWorker
 {
-  public static final Logger logger = Logger.getLogger(ShiftImageDate.class);
+  public static final Logger logger = Logger.getLogger(ShiftImageDateWorker.class);
   public static String sourceDir = "C:/Documents and Settings/dcremonesi/Documenti/Immagini/FotoDaAllineare";
 
   public static void processDir(File topDir) throws IOException {

@@ -1,4 +1,4 @@
-package imagereader;
+package it.dcremo.photoarchiver;
 
 import java.io.File;
 import java.io.IOException;
@@ -6,17 +6,16 @@ import java.util.Date;
 
 import org.apache.log4j.Logger;
 
-import it.dcremo.photoarchiver.EstrattoreDataJpeg;
 
-public class CopyImages {
+public class MediaArchiverWorker {
 
 	static boolean compareDate = false;
-	public static final Logger logger = Logger.getLogger(CopyImages.class);
+	public static final Logger logger = Logger.getLogger(MediaArchiverWorker.class);
 	private String sourceDir;
 	private String imageDestinationDir;
 	private String otherDestinationDir;
 
-	public CopyImages(String sourceDir, String imageDestinationDir,
+	public MediaArchiverWorker(String sourceDir, String imageDestinationDir,
 			String otherDestinationDir) {
 		this.sourceDir = sourceDir;
 		this.imageDestinationDir = imageDestinationDir;
