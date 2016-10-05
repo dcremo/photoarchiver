@@ -22,17 +22,11 @@ public class MediaArchiverLauncher {
 	}
 
 	public static void main(String[] args) throws Exception {
-		/*
-		 * ImageReaderMain imageReaderMain1 = new ImageReaderMain(); try {
-		 * imageReaderMain1.editEXIF(); } catch (IOException ex) {
-		 * ex.printStackTrace(); }
-		 * 
-		 * try { imageReaderMain1.readEXIF(); } catch (IOException ex) {
-		 * ex.printStackTrace(); }
-		 */
+
 		String sourceDir;
 		String imageDestinationDir;
 		String otherDestinationDir;
+
 		if (args.length==3) {
 			sourceDir = args[0];
 			imageDestinationDir = args[1];
